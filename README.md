@@ -4,7 +4,7 @@ This space was created to store my course notes for the SQL Specialization in
 Datacamp. Some kind of a Cheat Sheet.
 
 ## Content
-1. TBD
+1. Introduction to Statistics
 2. TBD
 3. ...
 
@@ -26,3 +26,4 @@ git commit -vs
 # Save changes
 git push
 ```
+
