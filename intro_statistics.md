@@ -33,7 +33,7 @@ Describe the central tendency; the typical central value in the distribution.
 
 | Measure | Formula | Description |
 | --- | --- | --- |
-| mean | $$\mu = \frac{\sum_{i=i}^{n} x_{i}}{n}$$ | gives the average of values, use for normal distribution *i.e.* when the data is symetrical |
+| mean | $$\mu = \frac{1}{n} \sum_{i=i}^{n} x_{i}$$ | gives the average of values, use for normal distribution *i.e.* when the data is symetrical |
 | median | $$\frac{middle\;value(s)}{number\;of\;middle\;values}$$ | middle value of the data (sorted), use for non-symetrical data or when there are outliers|
 | mode | | most frequent value|
 
@@ -50,3 +50,20 @@ Spread describes how far apart datapoints are.
 | standard deviation | $$\sigma = \sqrt{\sigma²}$$ | way of reverting the square transformation of the variance, average distance between datapoints and mean |
 | quartiles | $$Q_i$$ | splits the information into four equal parts | 
 | interquartile range| $$Q_3 - Q_1$$| distance between the 1st and 3rd quartile; this measure is less affected by extreme values |
+
+<br />
+
+## Probability and distributions
+
+### Probability of an event: 
+
+$P(event) = \frac{number\;of\;ways\;the\;event\;can\;happen}
+{total\;number\;of\;possible\;outcomes}$
+
+$0 >= P >= 1$
+
+### Conditional probability
+
+Used for sampling without replacement, which occurs when events are dependent *i.e.* the outcome of a first event influence in the second. 
+
+$P(A|B) = \frac{P(A \cap B)}{P(B)}$
