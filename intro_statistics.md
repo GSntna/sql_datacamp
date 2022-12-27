@@ -34,8 +34,8 @@ Describe the central tendency; the typical central value in the distribution.
 | Measure | Formula | Description |
 | --- | --- | --- |
 | mean | $$\mu = \frac{\sum_{i=i}^{n} x_{i}}{n}$$ | gives the average of values, use for normal distribution *i.e.* when the data is symetrical |
-| median | $$\frac{middle\;value(s)}{\#\;of\;middle\;values}$$ | middle value of the data (sorted), use for non-symetrical data or when there are outliers|
-| mode | $$most repeated value$$| most frequent value|
+| median | $$\frac{middle\;value(s)}{number\;of\;middle\;values}$$ | middle value of the data (sorted), use for non-symetrical data or when there are outliers|
+| mode | | most frequent value|
 
 <br />
 
