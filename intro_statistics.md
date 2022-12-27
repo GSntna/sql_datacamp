@@ -64,6 +64,69 @@ $0 >= P >= 1$
 
 ### Conditional probability
 
-Used for sampling without replacement, which occurs when events are dependent *i.e.* the outcome of a first event influence in the second. 
+Used for sampling without replacement, which occurs when events are dependent 
+*i.e.* the outcome of a first event influence in the second. 
 
 $P(A|B) = \frac{P(A \cap B)}{P(B)}$
+
+### Types of distributions
+
+* **Discrete distributions:** categorical; it's one in which data can only take 
+on certain values. 
+* **Continious distributions:** numerical; one in which data can take on any 
+value within a specified range. 
+
+### Binomial distribution
+
+It's the probablility distribution of the **number of successes** in a *sequence* 
+of **independent events**; for example, number of heads in a sequence of coin
+flips. 
+
+It is described by *n* and *p*, where:
+* *n* = total number of events
+* *p* = probability of success
+
+It can be used for **independent events** producing **binary outcomes**. 
+
+### Expected value
+$Expected\;value = n * p$
+
+### Normal distribution
+
+Graph looks like a bell curve. 
+
+![Normal distribution graph](./images/normal_dist.png)
+
+Properties:
+* Symetrical
+* Probability never hits zero
+* Described by its mean and standard deviation
+    * $1*\sigma \pm \mu = $ **68%** of the distribution
+    * $2*\sigma \pm \mu = $ **95%** of the distribution
+    * $3*\sigma \pm \mu = $ **99.7%** of the distribution
+
+It's important because many real world data resembles a normal distribution. 
+Also because for many statistical tests it is required. 
+
+### Skewness
+
+Describes the direction where the data tails off.
+
+![Positive and negative skewed graphs](./images/skewness.png)
+
+### Kurtosis
+
+A way of describing hte ocurrence of extreme values in a distribution. There 
+are three types of kurtosis:
+* Leptokurtic $excess\;kurtosis > 0$
+* Mesokurtic $excess\;kurtosis = 0$
+* Platikurtic $excess\;kurtosis < 0$
+
+![Kurtosis types](./images/kurtosis.png)
+
+### Central limit theorem
+
+The sampling distribution of a statistic becomes closer to the normal
+ distribution as the size of the sample increases. 
+
+ It only aplies when the samples are taken randomly and are independent. 
