@@ -226,4 +226,7 @@ to be accepted.
 
 There can be two types of errors when drawing a conclusion.
 
-![Error types](./images/error_types.png)
+| | Null hypothesis is TRUE | Null hypothesis is FALSE|
+| --- | :---: | :---: |
+| Reject null hypothesis | Type I Error | *Correct conclusion* |
+| Accept null hypothesis | *Correct conclusion* | Type II Error |
