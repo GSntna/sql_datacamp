@@ -1,5 +1,18 @@
 # Intro SQL
 
+## Summary
+
+| Keyword | Use |
+| --- | --- |
+| SELECT | **selects the fields** that we want to return. Use the *asterisk (\*)* to bring all the fields of the table |
+| DISTINCT | returns the unique values of the field(s) |
+| AS | gives an alias to a field, the field can be referenced by this alias in the query |
+| FROM | specifies the table where we're taking the fields from |
+| CREATE VIEW | creates a virtual table from a query and stores it in memory|
+| ; | the semicolon should be used at the end of every query |
+
+<br />
+
 ## SQL
 
 * Short for Structured Query Language
@@ -110,15 +123,3 @@ FROM table_name
 SELECT field_1, field_2
 FROM view_name
 ```
-<br />
-
-## Summary
-
-| Keyword | Use |
-| --- | --- |
-| SELECT | **selects the fields** that we want to return. Use the *asterisk (\*)* to bring all the fields of the table |
-| DISTINCT | returns the unique values of the field(s) |
-| AS | gives an alias to a field, the field can be referenced by this alias in the query |
-| FROM | specifies the table where we're taking the fields from |
-| CREATE VIEW | creates a virtual table from a query and stores it in memory |
-| ; | the semicolon should be used at the end of every query |
