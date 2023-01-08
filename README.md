@@ -7,6 +7,13 @@ Datacamp. Some kind of a Cheat Sheet.
 
 ## Content
 1. Introduction to Statistics
+    * Types of data
+    * Measures of center
+    * Measures of spread
+    * Probability and distributions
+    * Skewness & Kurtosis
+    * Hypothesis testing
+    * Correlation
 
 2. Introduction to SQL
     * SQL Basic queries
