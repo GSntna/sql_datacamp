@@ -5,6 +5,7 @@
 **Statistics**.- practice and study of collecting and alayzing data. 
 
 ### Branches of statistics
+
 * **Descriptive/Summary Statistics:** *Describe* or *summarize* data;
 **population**
 * **Inferential Statistics:** Use a sample to *draw conclusions* about a 
