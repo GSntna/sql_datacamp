@@ -23,6 +23,9 @@ Datacamp. Some kind of a Cheat Sheet.
     * WHERE, HAVING, LIKE, ORDER BY, ROUND()
 
 4. Joining data
+    * JOINS (INNER, LEFT/RIGHT, OUTER, CROSS)
+    * Sets (UNION/UNION ALL, INTERCECT, EXCEPT)
+    * Subqueries (inside SELECT, FROM & WHERE)
 
 <br />
 <br />
