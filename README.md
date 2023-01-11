@@ -6,7 +6,7 @@ Datacamp. Some kind of a Cheat Sheet.
 <br />
 
 ## Content
-1. Introduction to Statistics
+0. Introduction to Statistics
     * Types of data
     * Measures of center
     * Measures of spread
@@ -15,12 +15,12 @@ Datacamp. Some kind of a Cheat Sheet.
     * Hypothesis testing
     * Correlation
 
-2. Introduction to SQL
+1. Introduction to SQL
     * SQL Basic queries
     * VIEW
     * SELECT, FROM, DISTINCT, AS
 
-3. Intermediate SQL
+2. Intermediate SQL
     * Filtering
     * Aggregate functions
     * Arithmetic operations
@@ -29,7 +29,7 @@ Datacamp. Some kind of a Cheat Sheet.
     * Order of statements execution
     * WHERE, HAVING, LIKE, ORDER BY, ROUND()
 
-4. Joining data
+3. Joining data
     * JOINS (INNER, LEFT/RIGHT, OUTER, CROSS)
     * Sets (UNION/UNION ALL, INTERCECT, EXCEPT)
     * Subqueries (inside SELECT, FROM & WHERE)
