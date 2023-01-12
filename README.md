@@ -49,11 +49,10 @@ git add file_name.extension
 # Opt1: Message that will be added when commited-pushed
 git commit -m "message_to_display"
 
-# Opt1: Message that will be added when commited-pushed (opens text 
+# Opt2: Message that will be added when commited-pushed (opens text 
 # editor to add commit message + commit description) 
 git commit -vs
 
 # Save changes
 git push
 ```
-
