@@ -195,3 +195,129 @@ Subqueries require computing power so we should consider:
 * How big is the database?
 * How big is the table we're querying from
 * Is the subquery actually necessary
+
+<br />
+
+# Correlated subqueries, nested subqueries and common table expressions
+
+## Correlated subqueries
+
+Special kind of subquery that 
+
+* *Uses values from the outer query* to generate a result.
+* The subquery ir re-executed each time a new row in th efinal data set is
+returned
+* They are used for advanced types of calculations such as advanced joining,
+filtering and evaluating of data in the database
+
+### Key differences between a simple and correlated subqueries
+
+| Simple Subquery | Correlated Subquery |
+| --- | --- |
+|Can be run *independently* from the main query | *Dependent* on the main query |
+| Evaluated once in the whole query | Evaluated in loops (reduces performance) |
+
+```sql
+-- Example without correlated subquery
+SELECT
+    c.name AS country,
+    AVG(m.home_goal + m.away_goal) AS avg_goals
+FROM countries AS c
+LEFT JOIN matches_table AS m
+ON c.id = m.country_id
+GROUP BY country
+
+-- Correlated query example
+SELECT
+    c.name AS country
+    (SELECT
+        AVG(home_goal + away_goal
+    FROM matches_table AS m
+    WHERE m.country_id = c.id)) AS avg_goals -- Subquery referencing countries
+FROM countries as c
+GROUP BY country
+```
+
+## Nested subqueries
+
+Subqueries can be nested inside other subqueries (being correlated or simple).
+
+```sql
+SELECT student
+FROM 
+    (SELECT student_name as student -- First subquery
+    FROM school_records
+    WHERE group_id IN
+        (SELECT id                  -- Second subquery
+        FROM groups
+        WHERE group_code = 'A')) as subq
+```
+
+## Common table expressions
+
+Common table expressions (CTE) are a common method for improving readability and
+accessibility of information in subqueries. 
+
+* CTEs are a special type of *subquery declared before* of the main query. 
+* *Named* and *referenced* later in FROM statemet
+* Used the keyword **WITH** to be declared (see syntax in the code box below)
+
+### Benefits
+
+* CTE is executed once and stored in memory
+* Improves query performance
+* Improves organization of queries
+* You can reference other CTEs, *i.e.* if we have 3 CTEs, the second an third
+can retrieve information from the first one.
+* It can reference itself (SELF JOIN), in a special kind of table called a
+*recursive CTE*.
+
+```sql
+-- CTE Syntax
+WITH s1 AS(
+    /* subquery 1 body */
+),
+s2 AS(                              -- add a second subquery
+    /* subquery 2 body */
+)
+
+-- Example
+WITH cte AS(                        -- creating a common table expression
+    SELECT student_name as student
+    FROM school_records
+    WHERE group_id IN
+        (SELECT id 
+        FROM groups
+        WHERE group_code = 'A') as subq
+)
+
+SELECT student
+FROM cte
+```
+
+## Which technique to use?
+
+### Joins
+
+* Combine 2+ tables
+    * Simple operations/aggregations
+
+### Correlated subqueries
+
+* Match subqueries & tables
+    * Avoid limit of joins
+    * DISADVANTAGE: High processing time
+
+### Multiple/nested subqueries
+
+* Multi-step transformations
+    * Improve accuracy and reproducibility
+
+### Common table expressions
+
+* Organize subqueries sequentially
+* Can reference other CTEs
+
+<br />
+
+# Window functions
