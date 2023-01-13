@@ -34,6 +34,14 @@ Datacamp. Some kind of a Cheat Sheet.
     * Sets (UNION/UNION ALL, INTERCECT, EXCEPT)
     * Subqueries (inside SELECT, FROM & WHERE)
 
+4. Data manipulation
+    * CASE statements
+    * Subqueries (nested & correlated)
+    * Common table expressions (CTE)
+    * Window functions
+    * Window partitions
+    * Sliding windows
+
 <br />
 <br />
 <br />
