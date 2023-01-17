@@ -102,6 +102,8 @@ WHERE medal = 'Gold';
 
 # Fetching, ranking and paging
 
+## Fetching
+
 There are 2 types of fetching functions: **relative** and **absolute**, the first
 one is dependent on the current row, while the second depends on the table or 
 partition. 
@@ -133,3 +135,71 @@ ORDER BY ev_year ASC
 
 Note: By default, the **LAST_VALUE()** will be considered as the current row. The
 **RANGE BETWEEN** clause extends the window to the end of the table or partition. 
+
+## Ranking
+
+Ranking window functions *rank rows according to their value*.
+
+| Function | Use |
+| --- | --- |
+| ROW_NUMBER() | window function that adds a index-like column $(n+1)$ |
+| RANK() | similar to the previous, but it assigns the same number to rows with identical values |
+| DENSE_RANK() | same as RANK() but it doesn't skip numbers* |
+
+\* RANK() will act exactly as ROW_NUMBER() but it will assign the same value to
+rows with the same value, i.e. for a race, if 2 runners got the first place with
+the same time they will both have 1st but the runner with the 2nd best time will
+be assigned number 3. DENSE_RANK() works this around and assign the 2nd best
+time number 2. 
+
+```sql
+/*Return gold medalists order by the number of medals with RANK and
+DENSE RANK column*/
+SELECT 
+    athlete, COUNT(medal) AS gold_medals,
+    RANK() OVER(ORDER BY COUNT(medal) DESC) AS rank,
+    DENSE_RANK() OVER(ORDER BY COUNT(medal) DESC) AS dense_rank,
+FROM games
+WHERE medal = 'Gold'
+ORDER BY gold_medals DESC, athlete;
+```
+
+### Example
+
+![Ranking examples](./images/rank_examples.png)
+
+## Paging
+
+Paging is splitting data into (approximately) equal chunks.
+
+### Use cases
+
+* Many API's return data in "*pages*" to reduce data being sent. 
+* Separating data into quartiles or thirds to judge performance, i.e. look at a
+specific value and see what chunk it belongs to
+
+| Function | Use |
+| --- | --- |
+| NTILE(*n*) | splits the data into *n* aproximately equal pages |
+
+This function creates a new column with that indicates to what page each record
+would belong to.
+
+```sql
+/* Return the athlete list and a column that indicates what page would
+they belong to if we splitted the list into 5 */
+SELECT 
+    DISTINCT athlete,
+    NTILE(5) OVER() AS page_number
+FROM games
+ORDER BY athletes
+
+/* Returns gold medalists and a column that indicates to what quartile they
+belong to */
+SELECT 
+    athlete, COUNT(medal) AS gold_medals
+    NTILE(4) OVER() AS quartile
+FROM games
+WHERE medal = 'Gold'
+ORDER BY gold_medals
+```
