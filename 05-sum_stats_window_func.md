@@ -203,3 +203,70 @@ FROM games
 WHERE medal = 'Gold'
 ORDER BY gold_medals
 ```
+
+<br />
+
+# Aggregate window functions and frames
+
+## Aggregate window functions
+
+Aggregate functions combined with the OVER() window function allow us to get
+cumulative measures such as the MAX() value so far (relative to the current row),
+the cumulative SUM(), etc.
+
+```sql
+/* Number of medals for each year along with some aggregate functions */
+SELECT
+    ev_year, medals
+    -- Max medals so far
+    MAX(medals) OVER(ORDER BY ev_year ASC) AS max_medals,
+    -- Average of medals so far
+    AVG(medals) OVER(ORDER BY ev_year ASC) AS avg_medals,
+    -- Cumulative sum
+    SUM(medals) OVER(ORDER BY ev_year ASC) AS avg_medals,
+FROM games
+ORDER BY ev_year
+```
+
+## Frames
+
+By default, a window *frame* starts at the beggining of the table and ends at
+the current row. We can change this with the use of **FRAMES**.
+
+### Frame syntax
+
+* ROWS BETWEEN \[START] AND \[FINISH]
+
+    or
+
+* RANGE BETWEEN \[START] AND \[FINISH]
+
+<br />
+
+### ROWS BETWEEN
+
+Start and finish can be one of 3 clauses:
+
+* *n* PRECEDING: *n* rows before the current row
+* CURRENT ROW: current row
+* *n* FOLLOWING: *n* rows after the current row
+
+This feature can be used to calculate **moving averages** (average of last *n*
+periods) and **moving total** (sum of the last *n* periods).
+
+```sql
+/* Return the 3 day moving average of the sales by day*/
+SELECT 
+    date_field,
+    amount,
+    AVG(amount) OVER(ORDER BY date_field ASC
+                    ROWS BETWEEN
+                    1 PRECEDING AND 1 FOLLOWING) AS 3_day_moving_average
+FROM sales
+```
+
+### RANGE BETWEEN
+
+The diffrence with ROWS BETWEEN clause is that:
+* RANGE treats duplicates in OVER's ORDER BY subclause as a single entity
+* ROWS BETWEEN is almost always used over RANGE BETWEEN
