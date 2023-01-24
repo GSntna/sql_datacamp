@@ -42,6 +42,19 @@ Datacamp. Some kind of a Cheat Sheet.
     * Window partitions
     * Sliding windows
 
+5. Summary stats and window functions
+    * Intro to window functions 
+    * OVER statement: PARTITION BY, ORDER BY
+    * Fetching (LAG, LEAD, FIRST_VALUE, LAST_VALUE)
+    * Ranking (ROW_NUMBER, RANK, DENSE_RANK)
+    * Paging (NTILE)
+    * Aggregate window functions
+    * Frames (ROWS BETWEEN, RANGE BETWEEN)
+    * Pivoting
+    * GROUP BY extensions: ROLLUP and CUBE
+    * COALESCE (null values replacement)
+    * STRING_AGG (column to string)
+
 <br />
 <br />
 <br />
